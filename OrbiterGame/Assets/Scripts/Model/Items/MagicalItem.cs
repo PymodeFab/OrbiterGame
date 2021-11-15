@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public abstract class MagicalItem : Item,ISMagical
 {
     [SerializeField] private MagicalEffect _effect;

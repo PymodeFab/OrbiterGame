@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 [CreateAssetMenu(fileName = "New NPC", menuName = "Character/NPC")]
 public class NPC : Character
 {

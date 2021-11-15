@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ISEquippable
 {
     bool CanBeEquipped(Stats s);
+
+    BodyPartEquipped GetPartEquipped();
 }

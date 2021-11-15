@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FC : MonoBehaviour
+[System.Serializable]
+public abstract class FC : Character
 {
-    // Start is called before the first frame update
-    void Start()
+    protected FC(string name, string desc, Sprite s) : base(name, desc, s)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

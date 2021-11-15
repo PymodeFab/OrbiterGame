@@ -9,7 +9,7 @@ using UnityEngine;
  * Author : Dompey Fabien
  * Version : 1.0.0
  */
-
+[System.Serializable]
 public abstract class Character : ScriptableObject
 {
 

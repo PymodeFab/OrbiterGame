@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class Equipment : Item, ISEquippable
+public class MagicalEquipment : MagicalItem, ISEquippable
 {
     [SerializeField] private Stats _requirements;
     [SerializeField] protected BodyPartEquipped _partEquipped;
-    public Equipment(string n, string d, Sprite s, int v, int w,Stats st,BodyPartEquipped bp) : base(n, d, s, v, w)
+    public MagicalEquipment(string n, string d, Sprite s, int v, int w, Stats st, MagicalEffect m, BodyPartEquipped bp) : base(n, d, s, v, w,m)
     {
-        if(s is null)
+        if (s is null)
         {
             throw new System.ArgumentException();
         }

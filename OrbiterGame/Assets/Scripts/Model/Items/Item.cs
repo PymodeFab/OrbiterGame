@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,8 @@ using UnityEngine;
  * Author : Dompey Fabien
  * Version : 1.0.0
  */
-public abstract class Item : ScriptableObject
+[System.Serializable]
+public abstract class Item : ScriptableObject,ICloneable
 {
 
     [SerializeField] private string _name;
@@ -36,4 +38,11 @@ public abstract class Item : ScriptableObject
     public string Name { get => _name; set => _name = value; }
     public string Desc { get => _desc; set => _desc = value; }
     public Sprite Sprite { get => _sprite; set => _sprite = value; }
+    public int Value { get => _value; set => _value = value; }
+    public int Weight { get => _weight; set => _weight = value; }
+
+    public virtual object Clone()
+    {
+        return this.Clone();
+    }
 }

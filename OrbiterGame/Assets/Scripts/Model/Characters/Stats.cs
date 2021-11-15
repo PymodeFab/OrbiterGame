@@ -5,7 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName ="New Stats",menuName ="Stats")]
 [Serializable]
-public class Stats : ScriptableObject
+public class Stats : ScriptableObject,ICloneable
 {
 
     [SerializeField] [Range(0,500)] private int _constitution;
@@ -123,6 +123,11 @@ public class Stats : ScriptableObject
     private bool VerifyStat(int s)
     {
         return 0 < s && s < 500;
+    }
+
+    public object Clone()
+    {
+        return new Stats(Constitution,Dexterity,Strength,Wisdom,Intelligence);
     }
 
     public static bool operator >=(Stats s1, Stats s2) => s1.Constitution >= s2.Constitution && s1.Dexterity >= s2.Dexterity && s1.Intelligence >= s2.Intelligence && s1.Wisdom >= s2.Wisdom && s1.Strength >= s2.Strength;

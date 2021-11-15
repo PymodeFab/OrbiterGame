@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "New Weapon",menuName ="Item/Equipment/Weapon")]
-public class Weapon : Equipment,IDamage
+[CreateAssetMenu(fileName = "New Magical Weapon", menuName = "Item/Magical Equipment/Magical Weapon")]
+public class MagicalWeapon : MagicalEquipment, IDamage
 {
     [SerializeField] private DamageType _dType;
     [SerializeField] private WeaponType _wType;
 
-    public WeaponType WType { get => _wType;}
+    public WeaponType WType { get => _wType; }
 
-    public Weapon(string n, string d, Sprite s, int v, int w, Stats st,DamageType dtype,WeaponType wtype) : base(n, d, s, v, w, st,BodyPartEquipped.ONE_HAND)
+    public MagicalWeapon(string n, string d, Sprite s, int v, int w,MagicalEffect m, Stats st, DamageType dtype, WeaponType wtype) : base(n, d, s, v, w,st,m,BodyPartEquipped.ONE_HAND)
     {
         this._dType = dtype;
         this._wType = wtype;
-        if(wtype == WeaponType.AXE || wtype == WeaponType.BOW || wtype == WeaponType.HAMMER || wtype == WeaponType.LONGSWORD || wtype == WeaponType.SPEAR || wtype == WeaponType.STAFF)
+        if (wtype == WeaponType.AXE || wtype == WeaponType.BOW || wtype == WeaponType.HAMMER || wtype == WeaponType.LONGSWORD || wtype == WeaponType.SPEAR || wtype == WeaponType.STAFF)
         {
             _partEquipped = BodyPartEquipped.TWO_HAND;
         }
@@ -27,7 +27,7 @@ public class Weapon : Equipment,IDamage
         switch (_wType)
         {
             case WeaponType.SPEAR:
-                d = new Dice(1,6);
+                d = new Dice(1, 6);
                 break;
             case WeaponType.BOW:
                 d = new Dice(1, 8);
@@ -102,7 +102,7 @@ public class Weapon : Equipment,IDamage
                 atts = 1;
                 break;
             case WeaponType.BOW:
-                atts = 0.9 ;
+                atts = 0.9;
                 break;
             case WeaponType.SWORD:
                 atts = 1.2;
@@ -133,7 +133,8 @@ public class Weapon : Equipment,IDamage
 
     public override object Clone()
     {
-        Weapon w = new Weapon((string)(Name.Clone()),(string) (Desc.Clone()), Sprite, Value, Weight,(Stats)(Requirements.Clone()), GetDamageType(), WType);
+        MagicalWeapon w = new MagicalWeapon((string)(Name.Clone()), (string)(Desc.Clone()), Sprite, Value, Weight,GetMagicalEffect(), (Stats)(Requirements.Clone()), GetDamageType(), WType);
         return w;
     }
 }
+
