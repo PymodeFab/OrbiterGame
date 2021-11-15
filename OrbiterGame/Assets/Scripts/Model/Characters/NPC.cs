@@ -21,4 +21,15 @@ public class NPC : Character
     }
 
     public List<String> Dialogs { get => new List<String>(_dialogs);}
+
+    public override object Clone()
+    {
+        List<string> dial = new List<string>();
+        foreach(string s in Dialogs)
+        {
+            dial.Add((string)s.Clone());
+        }
+        NPC nps = new NPC((string)Name.Clone(), (string)Description.Clone(), Sprite, dial);
+        return nps;
+    }
 }

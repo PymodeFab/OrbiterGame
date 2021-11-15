@@ -17,8 +17,7 @@ MonoBehaviour:
   _sprite: {fileID: 0}
   _value: 0
   _weight: 0
-  _requirements: {fileID: 0}
+  _requirements: {fileID: 11400000, guid: 47c2d405be71edb498cd224890610938, type: 2}
+  _partEquipped: 0
   _dType: 0
   _wType: 0
-  _range: 0
-  _attackSpeed: 0
