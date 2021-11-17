@@ -6,4 +6,6 @@
     double GetAttackSpeed();
 
     DamageType GetDamageType();
+
+    WeaponType GetWeaponType();
 }

@@ -9,7 +9,7 @@ public class Weapon : Equipment,IDamage
     [SerializeField] private DamageType _dType;
     [SerializeField] private WeaponType _wType;
 
-    public WeaponType WType { get => _wType;}
+    public WeaponType GetWeaponType() => _wType;
 
     public Weapon(string n, string d, Sprite s, int v, int w, Stats st,DamageType dtype,WeaponType wtype) : base(n, d, s, v, w, st,BodyPartEquipped.ONE_HAND)
     {
@@ -133,7 +133,7 @@ public class Weapon : Equipment,IDamage
 
     public override object Clone()
     {
-        Weapon w = new Weapon((string)(Name.Clone()),(string) (Desc.Clone()), Sprite, Value, Weight,(Stats)(Requirements.Clone()), GetDamageType(), WType);
+        Weapon w = new Weapon((string)(Name.Clone()),(string) (Desc.Clone()), Sprite, Value, Weight,(Stats)(Requirements.Clone()), GetDamageType(), _wType);
         return w;
     }
 }

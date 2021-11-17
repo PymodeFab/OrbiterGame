@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class Dice
+public class Dice : ScriptableObject,ICloneable
 {
-    private int _numberRolls;
-    private int _diceValue;
+   [SerializeField] [Range(1,20)] private int _numberRolls;
+    [SerializeField] private int _diceValue;
 
     public Dice(int rolls,int value)
     {
@@ -24,6 +24,11 @@ public class Dice
 
     public int NumberRolls { get => _numberRolls;}
     public int DiceValue { get => _diceValue; }
+
+    public object Clone()
+    {
+        return new Dice(NumberRolls, DiceValue);
+    }
 
     public int RollDice(int modifier)
     {

@@ -9,7 +9,7 @@ public class MagicalWeapon : MagicalEquipment, IDamage
     [SerializeField] private DamageType _dType;
     [SerializeField] private WeaponType _wType;
 
-    public WeaponType WType { get => _wType; }
+    public WeaponType GetWeaponType() => _wType;
 
     public MagicalWeapon(string n, string d, Sprite s, int v, int w,MagicalEffect m, Stats st, DamageType dtype, WeaponType wtype) : base(n, d, s, v, w,st,m,BodyPartEquipped.ONE_HAND)
     {
@@ -133,7 +133,7 @@ public class MagicalWeapon : MagicalEquipment, IDamage
 
     public override object Clone()
     {
-        MagicalWeapon w = new MagicalWeapon((string)(Name.Clone()), (string)(Desc.Clone()), Sprite, Value, Weight,GetMagicalEffect(), (Stats)(Requirements.Clone()), GetDamageType(), WType);
+        MagicalWeapon w = new MagicalWeapon((string)(Name.Clone()), (string)(Desc.Clone()), Sprite, Value, Weight,GetMagicalEffect(), (Stats)(Requirements.Clone()), GetDamageType(), _wType);
         return w;
     }
 }
